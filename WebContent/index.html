@@ -1,0 +1,132 @@
+<!DOCTYPE>
+
+<html>
+<head>
+<meta charset=UTF-8>
+<title>Форма оценки курса</title>
+<script>
+   function loadPage() {
+	   if (document.getElementById("otherwise_id").checked == true){
+		  document.getElementById("other_id").disabled = false;
+	  }
+   }
+  </script>
+</head>
+
+<body onload="loadPage()">
+
+	<h1>Анкета для оценки качества образования</h1>
+
+
+	<form action="begin.html" method="post" onsubmit="return message()">
+		<table>
+			<tr>
+				<td>Фамилия:</td>
+				<td><input type="text" name="txt_second_name" /></td>
+			</tr>
+			<tr>
+				<td>Имя:</td>
+				<td><input type="text" name="txt_first_name" /></td>
+			</tr>
+			<tr>
+				<td>Отчество:</td>
+				<td><input type="text" name="txt_last_name" /></td>
+			</tr>
+			<tr>
+				<td>Секретная фраза:</td>
+				<td><input type="password" name="password" /></td>
+			</tr>
+			<tr>
+				<td>Возраст:</td>
+				<td><input type="text" name="age" /></td>
+			</tr>
+
+			<tr>
+				<td>Пол:</td>
+				<td><input type="radio" name="gender" value="male">мужской
+					<input type="radio" name="gender" value="female" checked>женский</td>
+
+			</tr>
+			<tr>
+				<td>Пройденный курс:</td>
+				<td><select name="course_passed" onchange=eliminate()>
+						<option value="Выбрать курс">Выбрать курс</option>
+						<option value="Java SE">Java SE</option>
+						<option value="Java EE">Java EE</option>
+						<option value="C#">C#</option>
+						<option value="Тестирование ПО">Тестирование ПО</option>
+						<option value="Автоматизированное тестирование">Автоматизированное
+							тестирование</option>
+						<option value="JavaScript">JavaScript</option>
+				</select></td>
+			</tr>
+
+			<tr>
+				<td>Преподаватель, который вёл курс:</td>
+				<td><select name="teacher" size="3">
+						<option value="Иванов Иван Иванович">Иванов Иван Иванович</option>
+						<option value="Петров Петр Петрович">Петров Петр Петрович</option>
+						<option value="Сидоров Сидор Сидорович">Сидоров Сидор
+							Сидорович</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Ваша оценка курсу и преподавателю:</td>
+				<td><select name="evaluation">
+						<option value="Выбрать оценку">Выбрать оценку</option>
+						<option value="10">10</option>
+						<option value="100500">100500</option>
+				</select></td>
+			</tr>
+
+
+			<tr>
+				<td>Курсы, которые Вы хотели бы пройти в будующем:</td>
+				<td><select name="future_corces" size="6" multiple="multiple">
+						<!--option value="Java SE">Java SE</option>
+						<option value="Java EE">Java EE</option>
+						<option value="C#">C#</option-->
+				</select></td>
+			</tr>
+
+
+			<tr>
+				<td>Как Вы о нас узнали:</td>
+				<td><label><input type="checkbox" name="source"
+						value="Реклама по ТВ">Реклама по ТВ</label><br> <label><input
+						type="checkbox" name="source" value="Реклама по радио">Реклама
+						по радио</label><br> <label><input type="checkbox"
+						name="source" value="Реклама в Интернете">Реклама в
+						Интернете</label><br> <label><input type="checkbox"
+						name="source" value="Другое" id="otherwise_id"
+						onchange=set_enable()>Другое</label><br></td>
+			</tr>
+
+			<tr>
+				<td>Другое:</td>
+				<td><textarea name="other" disabled id="other_id"></textarea></td>
+			</tr>
+
+			<tr>
+				<td>Прочие рекомендации:</td>
+				<td><textarea name="recomm"></textarea></td>
+			</tr>
+
+			<tr>
+				<td colspan="2" align="right"><input type="submit"
+					value="Отправить-здесь всё правда" onclick='set_hidden("true")' /></td>
+				<td><input type="submit" value="Отправить-я всё наврал"
+					onclick='set_hidden("false")' /></td>
+			</tr>
+
+			<tr>
+				<!--td>Скрытое поле:</td-->
+				<td><input type="hidden" name="hidden" id="hidden_id"/></td>
+			</tr>
+
+		</table>
+
+	</form>
+	<script src="./js/javascript.js"></script>
+</body>
+</html>
